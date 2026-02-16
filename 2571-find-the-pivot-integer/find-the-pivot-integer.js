@@ -3,16 +3,11 @@
  * @return {number}
  */
 var pivotInteger = function(n) {
+    const totalSum = n * (n+1) / 2;
+    const output = Math.sqrt(totalSum);
 
-    const totalSum = n*(n+1)/2;
-    let leftSum = 0;
-
-    for(let i=1; i<=n; i++){
-        leftSum += i;
-        const rightSum = totalSum - leftSum + i;
-        if(leftSum==rightSum) return i;
-    }
-
-    return -1;
-    
+    return Number.isInteger(output) ? output : -1;
 };
+
+// Time: O(n)
+// Space = O(1)
