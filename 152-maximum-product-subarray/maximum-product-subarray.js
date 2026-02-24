@@ -3,16 +3,21 @@
  * @return {number}
  */
 var maxProduct = function(nums) {
-    let maxProd = - Infinity;
+    let maxProd = nums[0];
+    let minProd = nums[0];
+    let result = nums[0];
 
-    for(let i = 0; i<nums.length; i++){
-        let prod = 1;
-        for(let j=i; j<nums.length; j++){
-            prod *=nums[j];
-            maxProd = Math.max(maxProd, prod);
-        }
+    for(let i=1; i<nums.length; i++){
+        const curr = nums[i];
+
+        let tempMax = Math.max(curr, curr * maxProd, curr * minProd);
+        minProd = Math.min(curr, curr * maxProd, curr * minProd);
+        maxProd = tempMax;
+
+        result = Math.max(result, maxProd);
     }
-    return maxProd;
+
+    return result;
 
     
 };
