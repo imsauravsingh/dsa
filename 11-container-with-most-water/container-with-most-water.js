@@ -6,7 +6,7 @@ var maxArea = function(height) {
 
     let left = 0;
     let right = height.length -1;
-    let max = - Infinity
+    let max = 0;
 
     while(left<right){
         let area = 0;
