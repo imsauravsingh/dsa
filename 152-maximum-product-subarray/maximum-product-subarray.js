@@ -8,13 +8,11 @@ var maxProduct = function(nums) {
     let result = nums[0];
 
     for(let i=1; i<nums.length; i++){
-        const curr = nums[i];
 
-        let tempMax = Math.max(curr, curr * maxProd, curr * minProd);
-        minProd = Math.min(curr, curr * maxProd, curr * minProd);
-        maxProd = tempMax;
-
-        result = Math.max(result, maxProd);
+        let tempMax = Math.max(nums[i], maxProd * nums[i], minProd * nums[i]);
+            minProd = Math.min(nums[i], maxProd * nums[i], minProd * nums[i]);
+            maxProd = tempMax;
+            result = Math.max(result, maxProd);
     }
 
     return result;
