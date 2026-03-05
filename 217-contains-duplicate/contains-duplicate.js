@@ -4,15 +4,16 @@
  */
 var containsDuplicate = function(nums) {
 
-    const obj = new Set();
+    let obj = new Set();
 
-    for(let i=0; i< nums.length; i++){
+    for(let i=0; i<nums.length; i++){
 
-        if(obj.has(nums[i])) return true
+        if(obj.has(nums[i])) return true;
 
         obj.add(nums[i]);
     }
 
     return false;
+
 
 };
