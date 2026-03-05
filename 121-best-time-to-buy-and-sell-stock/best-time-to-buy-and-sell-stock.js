@@ -8,15 +8,17 @@ var maxProfit = function(prices) {
     let result = 0;
 
     while(sell<prices.length){
-        if(prices[buy]>prices[sell]){
-            buy = sell;
+        if(prices[buy] > prices[sell]){
+            buy = sell
         }else{
-            result = Math.max(result, prices[sell]-prices[buy]);
+            result = Math.max(result, prices[sell]-prices[buy])
         }
+
         sell++;
     }
 
     return result;
+
 
     
 };
