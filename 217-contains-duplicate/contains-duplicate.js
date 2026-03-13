@@ -4,16 +4,12 @@
  */
 var containsDuplicate = function(nums) {
 
-    let obj = new Set();
+    nums.sort((a,b)=>a-b);
 
-    for(let i=0; i<nums.length; i++){
-
-        if(obj.has(nums[i])) return true;
-
-        obj.add(nums[i]);
+    for(let i=1; i<nums.length; i++){
+        if(nums[i]===nums[i-1]) return true;
     }
 
     return false;
-
 
 };
