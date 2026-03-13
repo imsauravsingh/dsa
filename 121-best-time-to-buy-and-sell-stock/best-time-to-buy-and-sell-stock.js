@@ -4,7 +4,7 @@
  */
 var maxProfit = function(prices) {
     let buy = 0;
-    let sell = 0;
+    let sell = 1;
     let max = 0;
 
     while(sell<prices.length){
