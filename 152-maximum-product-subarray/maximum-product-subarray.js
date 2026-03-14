@@ -5,13 +5,18 @@
 var maxProduct = function(nums) {
 
     let max = -Infinity;
+    let prefix= 1;
+    let suffix = 1;
+    let n = nums.length;
 
-    for(let i=0; i<nums.length; i++){
-        let curr = 1;
-        for(let j=i; j<nums.length; j++){
-            curr = curr * nums[j];
-            max = Math.max(max, curr);
-        }
+    for(let i=0; i<n; i++){
+        if(prefix===0) prefix = 1;
+        if(suffix===0) suffix = 1;
+
+        prefix = prefix * nums[i];
+        suffix = suffix * nums[n-1-i];
+
+        max = Math.max(max, prefix, suffix);
     }
 
     return max;
