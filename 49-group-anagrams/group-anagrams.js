@@ -15,9 +15,6 @@ var groupAnagrams = function(strs) {
 
     }
 
-    const res = [];
-    for(let [key, val] of map){
-        res.push(val);
-    }
-    return res;
+    return Array.from(map.values());
+
 };
