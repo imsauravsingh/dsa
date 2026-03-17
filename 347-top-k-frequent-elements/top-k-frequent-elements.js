@@ -6,12 +6,11 @@
 var topKFrequent = function(nums, k) {
 
     const map = new Map();
-    const n = nums.length;
-    for(let i=0; i<n; i++){
+    for(let i=0; i<nums.length; i++){
         map.set(nums[i], (map.get(nums[i]) || 0)+1);
     }
 
-    const buckets = Array(n + 1).fill(0).map(()=>[]);
+    const buckets = Array(nums.length + 1).fill(0).map(()=>[]);
     for(let [key, freq] of map){
         buckets[freq].push(key);
     }
