@@ -8,10 +8,11 @@ var groupAnagrams = function(strs) {
     for(let i=0; i<strs.length; i++){
         const sortedStr = strs[i].split('').sort().join('');
         if(!map.has(sortedStr)){
-            map.set(sortedStr, [strs[i]]);
-        }else{
-            map.set(sortedStr, [...map.get(sortedStr), strs[i]]);
+            map.set(sortedStr, []);
         }
+
+        map.get(sortedStr).push(strs[i]);
+
     }
 
     const res = [];
