@@ -12,10 +12,25 @@
  * @return {boolean}
  */
 var isSameTree = function(p, q) {
-    if(p === null && q === null) return true;
-    if(p === null || q === null) return false;
-    if(p.val !== q.val ) return false;    
+    const queue = [];
+    queue.push(p);
+    queue.push(q);
 
-    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+    while(queue.length){
+        let leftNode = queue.shift();
+        let rightNode = queue.shift();
+
+        if(leftNode === rightNode) continue;
+        else if(leftNode == null && rightNode==null) continue
+        else if(leftNode == null || rightNode==null) return false;
+        else if(leftNode.val !== rightNode.val) return false;
+
+
+        queue.push(leftNode.left);
+        queue.push(rightNode.left);
+        queue.push(leftNode.right);
+        queue.push(rightNode.right);
+    }
+    return queue.length === 0 ? true : false;
 };
 
