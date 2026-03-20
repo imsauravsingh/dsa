@@ -3,24 +3,21 @@
  * @return {number}
  */
 var maxProduct = function(nums) {
-
     let max = -Infinity;
-    let prefix= 1;
-    let suffix = 1;
-    let n = nums.length;
+    let pre = 1;
+    let suff = 1;
+    for(let i=0; i<nums.length; i++){
+        if(pre===0) pre = 1;
+        if(suff===0) suff = 1;
 
-    for(let i=0; i<n; i++){
-        if(prefix===0) prefix = 1;
-        if(suffix===0) suffix = 1;
-
-        prefix = prefix * nums[i];
-        suffix = suffix * nums[n-1-i];
-
-        max = Math.max(max, prefix, suffix);
+        pre *= nums[i];
+        suff *= nums[nums.length - i -1];
+        max = Math.max(max, pre, suff);
     }
 
     return max;
+
 };
 
-// Time complexity: O(n2)
+// Time complexity: O(n)
 // Space Complexity: O(1)
