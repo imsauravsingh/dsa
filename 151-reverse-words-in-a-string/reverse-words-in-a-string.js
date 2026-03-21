@@ -7,7 +7,7 @@ var reverseWords = function(s) {
     const arr = [];
     let words = '';
     while(left<s.length){
-        while(!checkStr(s[left])){ 
+        while(left < s.length && s[left]===" "){ 
             if(words) arr.unshift(words);
             left++;
             words='';
