@@ -8,16 +8,16 @@ var reverseWords = function(s) {
     let words = '';
     while(left<s.length){
         while(!checkStr(s[left])){ 
-            if(words) arr.push(words);
+            if(words) arr.unshift(words);
             left++;
             words='';
         }
         words +=s[left];
         left++;
-        if(left===s.length && words) arr.push(words);
+        if(left===s.length && words) arr.unshift(words);
     }
 
-    return arr.reverse().join(' ');
+    return arr.join(' ');
 
 
 };
