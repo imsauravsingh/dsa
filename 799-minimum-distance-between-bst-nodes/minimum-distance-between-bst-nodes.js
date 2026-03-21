@@ -17,20 +17,21 @@ var minDiffInBST = function(root) {
     // difference between nodes should be minimum
     // DFS - Inorder
 
-    let data = [];
     let node = root;
     let min = Infinity;
+    let pre = null;
     function traverse(n){
+        if(!n) return;
+
         n.left && traverse(n.left);
-        data.push(n.val);
+        if(pre!==null){
+            min = Math.min(min, n.val - pre);
+        }
+        pre = n.val;
+
         n.right && traverse(n.right);        
     }
 
-    traverse(node);
-
-    for(let i=1; i<data.length; i++){
-        min = Math.min(min, data[i]-data[i-1]);
-    }
-    
+    traverse(node);    
     return min;
 };
