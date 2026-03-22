@@ -7,7 +7,7 @@ var groupAnagrams = function(strs) {
     const base = 'a'.charCodeAt(0);
 
     for(let str of strs){
-        const strArr = new Array(26).fill(0);
+        const strArr = new Uint8Array(26);
         for(let char of str){
             strArr[char.charCodeAt(0)-base]++;
         }
