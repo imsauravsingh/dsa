@@ -11,7 +11,7 @@ var groupAnagrams = function(strs) {
         for(let char of str){
             strArr[char.charCodeAt(0)-base]++;
         }
-        const key = strArr.join("#");
+        const key = strArr.toString();
         if(!map.has(key)){
             map.set(key, []);
         }
